@@ -28,7 +28,7 @@ contract SwapExamples {
    /// @return amountOut The amount of WETH9 received.
    function swapExactInputSingle(
       uint256 amountIn, address sourceToken, address destToken, uint24 poolFee
-   ) external payable returns (uint256 amountOut) {
+   ) external payable returns (uint256) {
       // msg.sender must approve this contract
 
       if (sourceToken == ETH_ADDRESS) {
@@ -51,7 +51,7 @@ contract SwapExamples {
       ISwapRouter.ExactInputSingleParams memory params = ISwapRouter
          .ExactInputSingleParams({
                tokenIn: safeWrapToken(sourceToken),
-               tokenOut: destToken,
+               tokenOut: safeWrapToken(destToken),
                fee: poolFee,
                recipient: msg.sender,
                deadline: block.timestamp,
@@ -60,8 +60,24 @@ contract SwapExamples {
                sqrtPriceLimitX96: 0
          });
 
-      // The call to `exactInputSingle` executes the swap.
-      amountOut = swapRouter.exactInputSingle{value: sourceToken == ETH_ADDRESS ? amountIn : 0}(params);
+      uint256 amountOut = 0;
+      if (destToken == ETH_ADDRESS) {
+         params.recipient = address(0);
+         amountOut = swapRouter.exactInputSingle{value: sourceToken == ETH_ADDRESS ? amountIn : 0}(params);
+         (bool success, ) = address(swapRouter).call(
+            abi.encodeWithSelector(
+               0x49404b7c, // unwrap WETH
+               amountOut,
+               msg.sender
+            )
+         );
+         require(success, "error unwrap WETH");
+      } else {
+         // The call to `exactInputSingle` executes the swap.
+         amountOut = swapRouter.exactInputSingle{value: sourceToken == ETH_ADDRESS ? amountIn : 0}(params);
+      }
+
+      return amountOut;
    }
 
    /// @notice swapExactOutputSingle swaps a minimum possible amount of DAI for a fixed amount of WETH.
