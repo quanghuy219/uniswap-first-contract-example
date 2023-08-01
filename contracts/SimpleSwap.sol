@@ -2,10 +2,11 @@
 pragma solidity >=0.7.6;
 pragma abicoder v2;
 
+import "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol";
 import "@uniswap/v3-periphery/contracts/libraries/TransferHelper.sol";
 import "@uniswap/v3-periphery/contracts/interfaces/ISwapRouter.sol";
 
-contract SwapExamples {
+contract SwapExamples is Initializable {
    // For the scope of these swap examples,
    // we will detail the design considerations when using
    // `exactInput`, `exactInputSingle`, `exactOutput`, and  `exactOutputSingle`.
@@ -13,11 +14,11 @@ contract SwapExamples {
    // It should be noted that for the sake of these examples, we purposefully pass in the swap router instead of inherit the swap router for simplicity.
    // More advanced example contracts will detail how to inherit the swap router safely.
 
-   ISwapRouter public immutable swapRouter;
+   ISwapRouter public swapRouter;
    address public constant ETH_ADDRESS = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;
    address public constant WETH_ADDRESS = 0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6;
 
-   constructor(ISwapRouter _swapRouter) {
+   function initialize(ISwapRouter _swapRouter) public initializer {
       swapRouter = _swapRouter;
    }
 

@@ -1,0 +1,89 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0x5e085521e7Ae9EF79d6EC5a8D51B8A1A4328ac05",
+    "txHash": "0x7eb3fc1d7d677d99227bbabc25f43297565a2b57969a9a1329475330aac9d9b3"
+  },
+  "proxies": [
+    {
+      "address": "0x145c9cBA45a23904f2642edd449Ec10eB5EB4cA6",
+      "txHash": "0x93368b697ea9800806adf2fe130ed20493e7e1910822b59ce2baf302afb5870c",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x9221540F60DB3528E99d586E285D79c76b77c391",
+      "txHash": "0x26b29240a2deaf0d62ccd8dab4e7f9d48296bca1ebe2a388e817a635fb35945b",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x5Fd404C7B388990c8a85f3363f9E85Aa372070E1",
+      "txHash": "0xa4c25f51e5b53e22af6ab5ffb680ad0378491554c66494417a3db426b4611f05",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x1D427A5df9c5839858C26797cf93a047cC2377c2",
+      "txHash": "0x01b8dc2fa5f0765184634303ee9b4d76c776a6f857ab0fdd8db031ee5e9e2447",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x1D6eCA11D263c0B98B01280f4e03bd5B02D01c74",
+      "txHash": "0xd1800fc89655ae644b9bd5e0373bf16a2cf70e083bd565cf83c0a62149fb9bfe",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xDD45d124B326f09c7b57F6b87e85924A991Ee8D2",
+      "txHash": "0xfd934cded66bb3c9c9c05fbc33c95a30ddbeb85ac863bf51d51f438c629e7e25",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x62805A97AA27D7173545b1692d54a2DdDC3dE7C2",
+      "txHash": "0x51f87ee67d320e4aa5ad7a452d323a811f574cdbf2acd0a4383b85edaacbdc82",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "12c0b46cbe71a50565bfb52e2642dcf065acc702fceef40ad829338ed4cecb19": {
+      "address": "0x4c7FB9b20659482106aC32ab80abEECB1b22423A",
+      "txHash": "0x00efbe5f90b8dcfa36cdbc1ebaa284a34d5caaef664500d6219ffd2958dd983b",
+      "layout": {
+        "solcVersion": "0.7.6",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:25"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:30"
+          },
+          {
+            "label": "swapRouter",
+            "offset": 2,
+            "slot": "0",
+            "type": "t_contract(ISwapRouter)497",
+            "contract": "SwapExamples",
+            "src": "contracts/SimpleSwap.sol:17"
+          }
+        ],
+        "types": {
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_contract(ISwapRouter)497": {
+            "label": "contract ISwapRouter",
+            "numberOfBytes": "20"
+          }
+        }
+      }
+    }
+  }
+}
