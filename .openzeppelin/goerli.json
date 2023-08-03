@@ -84,6 +84,49 @@
           }
         }
       }
+    },
+    "42ebf5de38d0610e234a8ba8727829768375dd269ff2b89bd5f9324a7e7a1b06": {
+      "address": "0x69E7EB4B990845C4da48E09D6C3533E22f49Ed56",
+      "txHash": "0x303e3c999040c1ddf8161295bbf962e8c63de2a87ef891b5f287f51524d1929a",
+      "layout": {
+        "solcVersion": "0.7.6",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:25"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:30"
+          },
+          {
+            "label": "swapRouter",
+            "offset": 2,
+            "slot": "0",
+            "type": "t_contract(ISwapRouter)497",
+            "contract": "SwapExamples",
+            "src": "contracts/SimpleSwap.sol:35"
+          }
+        ],
+        "types": {
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_contract(ISwapRouter)497": {
+            "label": "contract ISwapRouter",
+            "numberOfBytes": "20"
+          }
+        }
+      }
     }
   }
 }

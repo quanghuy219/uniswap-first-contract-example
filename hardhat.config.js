@@ -17,7 +17,7 @@ module.exports = {
   networks: {
     goerli: {
       url: INFURA_NODE_URL,
-      accounts: [PRIVATE_KEY]
+      accounts: [PRIVATE_KEY],
     }
   },
   paths: {
